@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from parsers import email_parser
+from swiss_knife.parsers import email_parser
 
 class TestEmailParser(unittest.TestCase):
     def test_extract_emails(self, ):

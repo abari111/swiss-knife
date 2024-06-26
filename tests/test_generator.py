@@ -1,5 +1,5 @@
 import unittest
-from generator import passwd_generator
+from swiss_knife.generator import passwd_generator
 
 
 
