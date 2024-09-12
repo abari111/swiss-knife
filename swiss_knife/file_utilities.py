@@ -99,7 +99,7 @@ def file_analyser(dir_path: str) -> Dict:
     return ext_counter
 
 
-def group_file_by_ext(dir_path:str, dest_path:str=None):
+def group_file_by_ext(dir_path: str, dest_path: str = None):
     if not os.path.exists(dir_path):
         return None
 
@@ -113,28 +113,28 @@ def group_file_by_ext(dir_path:str, dest_path:str=None):
     files = {ext: [] for ext in files_ext}
     for res in results:
         files[res.output.ct_label].append(res.path)
-        
+
     os.chdir(dir_path)
     if not dest_path:
         dest_path = dir_path
-        
+
     for key in files.keys():
         try:
             os.mkdir(key)
         except Exception as e:
             pass
-        
+
         if not os.path.exists(key):
             raise FileNotFoundError
-        
+
         for file_path in files[key]:
             source_filepath = file_path.split("\\")[-1]
-            dest_filepath = os.path.join(key ,file_path.split("\\")[-1])
+            dest_filepath = os.path.join(key, file_path.split("\\")[-1])
             shutil.move(source_filepath, dest_filepath)
-    
+
     return True
+
 
 if __name__ == "__main__":
     analysis_res = file_analyser("assets/MyData")
     files = group_file_by_ext("assets/MyData")
-

@@ -31,9 +31,7 @@ def email_parser(
 
 
 def check_email_tld(email, tld):
-    pattern = (
-        r"^(?P<username>[a-zA-Z0-9._%+-]+)@(?P<domain>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$"
-    )
+    pattern = r"^(?P<username>[a-zA-Z0-9._%+-]+)@(?P<domain>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$"
 
     match = re.match(pattern, email)
     if match:

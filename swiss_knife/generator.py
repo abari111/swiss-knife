@@ -14,7 +14,9 @@ def passwd_generator(passwd_ln: int = 12) -> str:
     if not is_len_valid(passwd_ln):
         passwd_ln = 12
 
-    characters = string.ascii_lowercase + string.ascii_uppercase + string.digits
+    characters = (
+        string.ascii_lowercase + string.ascii_uppercase + string.digits
+    )
     passwd = "".join(random.sample(characters, passwd_ln))
 
     return passwd
